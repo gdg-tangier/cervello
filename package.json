@@ -1,0 +1,23 @@
+{
+  "name": "brain",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "keywords": [
+    "brain"
+  ],
+  "author": "Amrani Houssain",
+  "license": "MIT",
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.3.0",
+    "source-map-loader": "^0.2.3",
+    "typescript": "^2.6.1"
+  },
+  "dependencies": {
+    "@types/es6-promise": "0.0.33"
+  }
+}

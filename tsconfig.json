@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "allowJs": true,
+        "strict": true,
+        "baseUrl": "./",
+        "paths": {},
+        "allowSyntheticDefaultImports": true
+    },
+    "files": [
+        "./src/index.ts"
+    ]
+}
