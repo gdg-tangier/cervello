@@ -2,9 +2,8 @@
     "name": "brain",
     "version": "0.2.1",
     "description": "A simple machine learning lib written in Typescript",
-    "main": "./dist/index.js",
+    "main": "./dist/cervello.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
         "build": "webpack"
     },
     "bugs": {
@@ -17,7 +16,7 @@
         "Linear Regression",
         "Typescript"
     ],
-    "author": "Amrani Houssain",
+    "author": "Amrani Houssain <amranidev@gmail.com>",
     "license": "MIT",
     "devDependencies": {
         "awesome-typescript-loader": "^3.3.0",
