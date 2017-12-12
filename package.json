@@ -1,5 +1,5 @@
 {
-    "name": "brain",
+    "name": "cervello",
     "version": "0.2.1",
     "description": "A simple machine learning lib written in Typescript",
     "main": "./dist/cervello.js",
