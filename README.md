@@ -79,4 +79,6 @@ nn.import(seralized)
 ## LICENSE
 [MIT](https://opensource.org/licenses/MIT)
 
-<img src="https://i.imgur.com/PqPOx94.png"/>
+## Contributors
+
+<a href="https://www.meetup.com/GDGtangier"><img src="https://i.imgur.com/ekYXyPW.png"/></a>
