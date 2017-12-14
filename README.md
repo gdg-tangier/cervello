@@ -118,7 +118,7 @@ let four = number(
 )
 
 // Neural network options
-let options = {hiddenLayer: 2, units: 4, iteration: 500000, activator: "sigmoid"}
+let options = {hiddenLayer: 2, units: 4, iteration: 100000, activator: "sigmoid"}
 
 // Init Neural Network.
 let nn = new Cervello.NeuralNetwork(options)
