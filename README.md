@@ -140,7 +140,7 @@ let result = nn.predict(number(
   '...$$$$'
 ))
 
-console.log(result) // ~ 0.1
+console.log(result) // ~ [0.1]
 
 // helpers
 function number(string) {
