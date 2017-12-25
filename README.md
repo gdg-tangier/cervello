@@ -118,16 +118,16 @@ let four = number(
 )
 
 // Neural network options
-let options = {hiddenLayer: 2, units: 4, iteration: 500000, activator: "sigmoid"}
+let options = {hiddenLayer: 2, units: 4, iteration: 100000, activator: "sigmoid"}
 
 // Init Neural Network.
 let nn = new Cervello.NeuralNetwork(options)
 
 // Train
-nn.train([{input: number(one), output: results("1")},
-          {input: number(two), output: results("2")},
-          {input: number(three), output: results("3")},
-          {input: number(four), output: results("4")}])
+nn.train([{input: one, output: results("1")},
+          {input: two, output: results("2")},
+          {input: three, output: results("3")},
+          {input: four, output: results("4")}])
 
 // Predict
 let result = nn.predict(number(
@@ -140,7 +140,7 @@ let result = nn.predict(number(
   '...$$$$'
 ))
 
-console.log(result) // ~ 0.1
+console.log(result) // ~ [0.1]
 
 // helpers
 function number(string) {
