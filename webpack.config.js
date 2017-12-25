@@ -1,3 +1,5 @@
+var webpack = require("webpack")
+
 module.exports = {
     entry: "./src/index.ts",
     output: {
@@ -7,7 +9,15 @@ module.exports = {
         libraryTarget: 'umd',
         umdNamedDefine: true
     },
+
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin({
+            compress: { warnings: false }
+        })
+    ],
+
     devtool: "source-map",
+
     resolve: {
         extensions: [".ts", ".js", ".json", ".tsx"]
     },
