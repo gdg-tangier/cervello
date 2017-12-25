@@ -1,6 +1,6 @@
 {
     "name": "cervello",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "description": "A simple machine learning lib written in Typescript",
     "main": "./dist/cervello.js",
     "scripts": {
