@@ -11,6 +11,25 @@ A simple machine learning lib written in Typescript.
 
 #### Installation
 
+##### Via CDN
+
+```html
+<script src="https://unpkg.com/cervello/dist/cervello.js"></script>
+
+<script>
+    // Note that we should install NeuralNetwork feature in the global mode by calling:
+    // Cervello.Cervello.NeuralNetwork
+    // [LibName].[Namespace].[Feature]
+    var nn = new Cervello.Cervello.NeuralNetwork()
+    var lr = new Cervello.Cervello.LinearRegression()
+    
+    //Check
+    console.log(nn, lr)
+</script>
+```
+
+##### Via NPM
+
 npm: `npm install cervello --save`
 
 
