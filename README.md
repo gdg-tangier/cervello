@@ -8,6 +8,7 @@ A simple machine learning lib written in Typescript.
 
 - **[Feed forward Neural Network with backpropagation](https://brilliant.org/wiki/feedforward-neural-networks)**.
 
+#### Try it out: [Demo](https://tinyurl.com/ydywtu2s)
 
 #### Installation
 
