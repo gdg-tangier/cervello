@@ -134,7 +134,7 @@ export namespace Cervello {
          * 
          * @var mddleLayer number
          */
-        protected middleLayer: number = 1;
+        protected middleLayer: Array<number> = [1];
 
         /**
          * Iteration
@@ -214,7 +214,7 @@ export namespace Cervello {
                     values: MathHelpers.Gaussian.random
                 }));
 
-            for (let i = 1; i < this.middleLayer; i++) {
+            for (let i = 1; i < this.middleLayer.length; i++) {
                 this.w.push(new MathHelpers.Matrix(
                     {
                         rows: this.middleLayerUnits,
@@ -236,7 +236,7 @@ export namespace Cervello {
         /**
          * Forward propagation.
          * 
-         * @param data MathHelpers.Matrix
+         * @param {data} MathHelpers.Matrix
          * 
          * @return Array<Data.sum>
          */
@@ -246,7 +246,7 @@ export namespace Cervello {
 
             result.push(this.mutiply(this.w[0], data.transpose()))
 
-            for (let i = 1; i < this.middleLayer; i++) {
+            for (let i = 1; i < this.middleLayer.length; i++) {
                 result.push(this.mutiply(this.w[i], result[i - 1].result))
             }
 
@@ -258,8 +258,8 @@ export namespace Cervello {
         /**
          * Backward propagation.
          * 
-         * @param data Data.Normalize 
-         * @param results Array<Data.Sum>
+         * @param {data} Data.Normalize 
+         * @param {results} Array<Data.Sum>
          * 
          * @return MathHelpers.Matrix
          */
@@ -267,11 +267,11 @@ export namespace Cervello {
 
             let diff = MathHelpers.Matrix.subtract(data.output.transpose(), results[results.length - 1].result)
             let delta = MathHelpers.Matrix.multiplyElements(results[results.length - 1].sum.transform(this.activation.prime), diff)
-            let changes = MathHelpers.Matrix.multiplyScalar(MathHelpers.Matrix.multiply(delta, results[this.middleLayer - 1].result.transpose()), this.learningRate)
+            let changes = MathHelpers.Matrix.multiplyScalar(MathHelpers.Matrix.multiply(delta, results[this.middleLayer.length - 1].result.transpose()), this.learningRate)
 
             this.w[this.w.length - 1] = MathHelpers.Matrix.add(this.w[this.w.length - 1], changes)
 
-            for (let i = 1; i < this.middleLayer; i++) {
+            for (let i = 1; i < this.middleLayer.length; i++) {
                 delta = MathHelpers.Matrix.multiplyElements(MathHelpers.Matrix.multiply(this.w[this.w.length - i].transpose(), delta), results[results.length - (i + 1)].sum.transform(this.activation.prime))
                 changes = MathHelpers.Matrix.multiplyScalar(MathHelpers.Matrix.multiply(delta, results[results.length - (i + 1)].result.transpose()), this.learningRate)
                 this.w[this.w.length - (i + 1)] = MathHelpers.Matrix.add(this.w[this.w.length - (i + 1)], changes)
