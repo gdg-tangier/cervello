@@ -134,7 +134,7 @@ export namespace Cervello {
          * 
          * @var mddleLayer number
          */
-        protected middleLayer: Array<number> = [1];
+        protected middleLayer: number = 3;
 
         /**
          * Iteration
@@ -194,7 +194,6 @@ export namespace Cervello {
 
                 back = this.back(data, result)
             }
-
             return this
         }
 
@@ -209,12 +208,13 @@ export namespace Cervello {
 
             this.w.push(new MathHelpers.Matrix(
                 {
-                    rows: this.middleLayerUnits,
+                    rows: this.middleLayer[0],
                     cols: data.input.m[0].length,
                     values: MathHelpers.Gaussian.random
                 }));
+                console.log("Input layer done")
 
-            for (let i = 1; i < this.middleLayer.length; i++) {
+            for (let i = 1; i < this.middleLayer; i++) {
                 this.w.push(new MathHelpers.Matrix(
                     {
                         rows: this.middleLayerUnits,
@@ -223,6 +223,7 @@ export namespace Cervello {
                     }
                 ))
             }
+            console.log("hidden Layer done")
 
             this.w.push(new MathHelpers.Matrix(
                 {
@@ -231,6 +232,8 @@ export namespace Cervello {
                     values: MathHelpers.Gaussian.random
                 }
             ))
+
+            console.log("output layer done")
         }
 
         /**
@@ -246,7 +249,7 @@ export namespace Cervello {
 
             result.push(this.mutiply(this.w[0], data.transpose()))
 
-            for (let i = 1; i < this.middleLayer.length; i++) {
+            for (let i = 1; i < this.middleLayerUnits; i++) {
                 result.push(this.mutiply(this.w[i], result[i - 1].result))
             }
 
@@ -267,11 +270,11 @@ export namespace Cervello {
 
             let diff = MathHelpers.Matrix.subtract(data.output.transpose(), results[results.length - 1].result)
             let delta = MathHelpers.Matrix.multiplyElements(results[results.length - 1].sum.transform(this.activation.prime), diff)
-            let changes = MathHelpers.Matrix.multiplyScalar(MathHelpers.Matrix.multiply(delta, results[this.middleLayer.length - 1].result.transpose()), this.learningRate)
+            let changes = MathHelpers.Matrix.multiplyScalar(MathHelpers.Matrix.multiply(delta, results[this.middleLayerUnits].result.transpose()), this.learningRate)
 
             this.w[this.w.length - 1] = MathHelpers.Matrix.add(this.w[this.w.length - 1], changes)
 
-            for (let i = 1; i < this.middleLayer.length; i++) {
+            for (let i = 1; i < this.middleLayerUnits; i++) {
                 delta = MathHelpers.Matrix.multiplyElements(MathHelpers.Matrix.multiply(this.w[this.w.length - i].transpose(), delta), results[results.length - (i + 1)].sum.transform(this.activation.prime))
                 changes = MathHelpers.Matrix.multiplyScalar(MathHelpers.Matrix.multiply(delta, results[results.length - (i + 1)].result.transpose()), this.learningRate)
                 this.w[this.w.length - (i + 1)] = MathHelpers.Matrix.add(this.w[this.w.length - (i + 1)], changes)
@@ -294,7 +297,7 @@ export namespace Cervello {
         public predict(input: Array<number>): Array<number> {
 
             let predict = this.forward(new MathHelpers.Matrix([input]))
-
+            console.log("prediction ready")
             return predict[predict.length - 1].result.m
         }
 
