@@ -127,7 +127,7 @@ export namespace Cervello {
          * 
          * @var middleLayerUnits number
          */
-        protected middleLayerUnits: number = 3;
+        protected middleLayerUnits: number = 4;
 
         /**
          * hidden layers.
@@ -141,7 +141,7 @@ export namespace Cervello {
          * 
          * @var iteration number
          */
-        protected iteration: number = 3
+        protected iteration: number = 10000
 
         /**
          * Learning rate.
