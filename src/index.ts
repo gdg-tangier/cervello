@@ -208,7 +208,7 @@ export namespace Cervello {
 
             this.w.push(new MathHelpers.Matrix(
                 {
-                    rows: this.middleLayer[0],
+                    rows: this.middleLayerUnits,
                     cols: data.input.m[0].length,
                     values: MathHelpers.Gaussian.random
                 }));
@@ -249,7 +249,7 @@ export namespace Cervello {
 
             result.push(this.mutiply(this.w[0], data.transpose()))
 
-            for (let i = 1; i < this.middleLayerUnits; i++) {
+            for (let i = 1; i < this.middleLayer; i++) {
                 result.push(this.mutiply(this.w[i], result[i - 1].result))
             }
 
@@ -270,11 +270,11 @@ export namespace Cervello {
 
             let diff = MathHelpers.Matrix.subtract(data.output.transpose(), results[results.length - 1].result)
             let delta = MathHelpers.Matrix.multiplyElements(results[results.length - 1].sum.transform(this.activation.prime), diff)
-            let changes = MathHelpers.Matrix.multiplyScalar(MathHelpers.Matrix.multiply(delta, results[this.middleLayerUnits].result.transpose()), this.learningRate)
+            let changes = MathHelpers.Matrix.multiplyScalar(MathHelpers.Matrix.multiply(delta, results[this.middleLayer - 1].result.transpose()), this.learningRate)
 
             this.w[this.w.length - 1] = MathHelpers.Matrix.add(this.w[this.w.length - 1], changes)
 
-            for (let i = 1; i < this.middleLayerUnits; i++) {
+            for (let i = 1; i < this.middleLayer; i++) {
                 delta = MathHelpers.Matrix.multiplyElements(MathHelpers.Matrix.multiply(this.w[this.w.length - i].transpose(), delta), results[results.length - (i + 1)].sum.transform(this.activation.prime))
                 changes = MathHelpers.Matrix.multiplyScalar(MathHelpers.Matrix.multiply(delta, results[results.length - (i + 1)].result.transpose()), this.learningRate)
                 this.w[this.w.length - (i + 1)] = MathHelpers.Matrix.add(this.w[this.w.length - (i + 1)], changes)
