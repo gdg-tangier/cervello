@@ -141,14 +141,14 @@ export namespace Cervello {
          * 
          * @var iteration number
          */
-        protected iteration: number = 10000
+        protected iteration: number = 10000;
 
         /**
          * Learning rate.
          * 
          * @var learningRate number
          */
-        protected learningRate: number = 0.01
+        protected learningRate: number = 0.01;
 
         /**
          * Activation method.
@@ -212,7 +212,6 @@ export namespace Cervello {
                     cols: data.input.m[0].length,
                     values: MathHelpers.Gaussian.random
                 }));
-                console.log("Input layer done")
 
             for (let i = 1; i < this.middleLayer; i++) {
                 this.w.push(new MathHelpers.Matrix(
@@ -223,7 +222,6 @@ export namespace Cervello {
                     }
                 ))
             }
-            console.log("hidden Layer done")
 
             this.w.push(new MathHelpers.Matrix(
                 {
@@ -233,7 +231,6 @@ export namespace Cervello {
                 }
             ))
 
-            console.log("output layer done")
         }
 
         /**
@@ -297,7 +294,7 @@ export namespace Cervello {
         public predict(input: Array<number>): Array<number> {
 
             let predict = this.forward(new MathHelpers.Matrix([input]))
-            console.log("prediction ready")
+
             return predict[predict.length - 1].result.m
         }
 
