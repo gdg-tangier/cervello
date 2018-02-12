@@ -127,14 +127,14 @@ export namespace Cervello {
          * 
          * @var middleLayerUnits number
          */
-        protected middleLayerUnits: number = 4;
+        protected middleLayerUnits: number = 3;
 
         /**
          * hidden layers.
          * 
          * @var mddleLayer number
          */
-        protected middleLayer: number = 3;
+        protected middleLayer: number = 1;
 
         /**
          * Iteration
