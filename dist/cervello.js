@@ -540,13 +540,13 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
                  *
                  * @var iteration number
                  */
-                this.iteration = 10000;
+                this.iteration = 100000;
                 /**
                  * Learning rate.
                  *
                  * @var learningRate number
                  */
-                this.learningRate = 0.01;
+                this.learningRate = 99;
                 /**
                  * Activation method.
                  *
@@ -596,7 +596,6 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
                     cols: data.input.m[0].length,
                     values: index_1.MathHelpers.Gaussian.random
                 }));
-                console.log("Input layer done");
                 for (var i = 1; i < this.middleLayer; i++) {
                     this.w.push(new index_1.MathHelpers.Matrix({
                         rows: this.middleLayerUnits,
@@ -604,13 +603,11 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
                         values: index_1.MathHelpers.Gaussian.random
                     }));
                 }
-                console.log("hidden Layer done");
                 this.w.push(new index_1.MathHelpers.Matrix({
                     rows: data.output.m[0].length,
                     cols: this.middleLayerUnits,
                     values: index_1.MathHelpers.Gaussian.random
                 }));
-                console.log("output layer done");
             };
             /**
              * Forward propagation.
@@ -660,7 +657,6 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
              */
             NeuralNetwork.prototype.predict = function (input) {
                 var predict = this.forward(new index_1.MathHelpers.Matrix([input]));
-                console.log("prediction ready");
                 return predict[predict.length - 1].result.m;
             };
             /**
