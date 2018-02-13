@@ -19,11 +19,28 @@
     "author": "Amrani Houssain <amranidev@gmail.com>",
     "license": "MIT",
     "devDependencies": {
+        "@types/jest": "^22.1.2",
         "awesome-typescript-loader": "^3.3.0",
+        "jest": "^22.3.0",
         "source-map-loader": "^0.2.3",
+        "ts-jest": "^22.0.4",
         "typescript": "^2.6.1"
     },
     "dependencies": {
         "@types/es6-promise": "0.0.33"
+    },
+    "jest": {
+        "transform": {
+            "^.+\\.tsx?$": "ts-jest"
+        },
+        "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js",
+            "jsx",
+            "json",
+            "node"
+        ]
     }
 }
