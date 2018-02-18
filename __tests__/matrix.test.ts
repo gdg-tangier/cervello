@@ -13,7 +13,7 @@ describe("Nerual Network Testing", () => {
     units: 3
   }
 
-  const mind = new Cervello.NeuralNetwork(options)
+  let mind = new Cervello.NeuralNetwork(options)
       .train([
         { input: [0, 0], output: [ 0 ] },
         { input: [0, 1], output: [ 1 ] },
@@ -33,7 +33,13 @@ describe("Nerual Network Testing", () => {
 })
 
 describe("Linear Regression Testing", () => {
-    // TODO: write tests for linear regression.
+    let data = {inputs: [1,2,3,4,5,6], outputs: [1,2,3,4,5,6]}
+        const lr = new Cervello.LinearRegression()
+        const lr2 = lr.train(data)
+        test("Predicted value should be 7", () => {
+            expect(lr.predict(7)).toBeGreaterThan(6.9)
+            expect(lr.predict(7)).toBeLessThanOrEqual(7)
+        })
 })
 
 
