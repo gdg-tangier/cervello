@@ -4,7 +4,8 @@
     "description": "A simple machine learning lib written in Typescript",
     "main": "./dist/cervello.js",
     "scripts": {
-        "build": "webpack"
+        "build": "webpack",
+        "test": "jest"
     },
     "bugs": {
         "url": "https://github.com/gdg-tangier/cervello/issues"
