@@ -32,6 +32,9 @@ describe("Nerual Network Testing", () => {
       })
 })
 
+/**
+ * @todo complete the tests
+ */
 describe("Linear Regression Testing", () => {
     let data = {inputs: [1,2,3,4,5,6], outputs: [1,2,3,4,5,6]}
         const lr = new Cervello.LinearRegression()
