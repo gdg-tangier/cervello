@@ -1,9 +1,9 @@
 import { MathHelpers } from "./../src/math/index"
 
-import {Cervello}  from "./../dist/cervello"
+import { Cervello }  from "./../dist/cervello"
 
 /**
- * @todo complete the tests
+ * @todo Complete the tests
  */
 describe("Nerual Network Testing", () => {
 
@@ -15,10 +15,10 @@ describe("Nerual Network Testing", () => {
 
   let mind = new Cervello.NeuralNetwork(options)
       .train([
-        { input: [0, 0], output: [ 0 ] },
-        { input: [0, 1], output: [ 1 ] },
-        { input: [1, 0], output: [ 1 ] },
-        { input: [1, 1], output: [ 0 ] }
+        { input: [0, 0], output: [0] },
+        { input: [0, 1], output: [1] },
+        { input: [1, 0], output: [1] },
+        { input: [1, 1], output: [0] }
       ])
 
       test('Predicted value should be between 0 and 1', () => {
@@ -33,7 +33,7 @@ describe("Nerual Network Testing", () => {
 })
 
 /**
- * @todo complete the tests
+ * @todo Complete the tests
  */
 describe("Linear Regression Testing", () => {
     let data = {inputs: [1,2,3,4,5,6], outputs: [1,2,3,4,5,6]}
@@ -47,5 +47,10 @@ describe("Linear Regression Testing", () => {
 
 
 describe("MathHelpers Testing", () => {
-    // TODO: write tests for MathHelpres
+    let matrix = new MathHelpers.Matrix([[1,2,3]])
+    let tmp: MathHelpers.Matrix
+    test("Transpose Matrix", () => {
+      tmp = matrix.transpose()
+      expect(tmp.m).toEqual([[1], [2], [3]])
+    })
 })
