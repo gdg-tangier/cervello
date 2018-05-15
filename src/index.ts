@@ -61,7 +61,7 @@ export namespace Cervello {
         }
 
         /**
-         * calculate gradient descent.
+         * Calculate gradient descent.
          * 
          * @param data any
          */
@@ -104,7 +104,7 @@ export namespace Cervello {
         }
 
         /**
-         * export model
+         * Export linear model
          * 
          * @return Array<number>
          */
@@ -130,7 +130,7 @@ export namespace Cervello {
         protected middleLayerUnits: number = 3;
 
         /**
-         * hidden layers.
+         * Hidden layers.
          * 
          * @var mddleLayer number
          */
