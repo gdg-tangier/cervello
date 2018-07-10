@@ -53,7 +53,7 @@ console.log(result) // => 7
 
 ##### Import and export
 
-Your can serialize Linear model and export it by `export()`, or you can load (a,b) of a trained linear model and use them as well.
+You can serialize Linear model and export it by `export()`, or you can load (a,b) of a trained linear model and use them as well.
 
 ```javascript
 // Export
