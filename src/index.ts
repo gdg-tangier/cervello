@@ -4,6 +4,7 @@ import { Data } from "./data/index"
 export namespace Cervello {
 
     export class LinearRegression {
+
         /**
          * @var a number
          */
@@ -87,6 +88,7 @@ export namespace Cervello {
          * Predict output
          * 
          * @param input number
+         * @return number
          */
         public predict(input: number) {
             // y = ax + b
