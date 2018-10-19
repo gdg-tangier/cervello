@@ -1,5 +1,4 @@
 ## Cervello
-[![Build Status](https://travis-ci.org/gdg-tangier/cervello.svg?branch=master)](https://travis-ci.org/gdg-tangier/cervello)
 
 A simple machine learning lib written in Typescript.
 
